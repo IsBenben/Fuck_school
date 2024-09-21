@@ -15,6 +15,8 @@ def ad_thread():
             self.attributes('-topmost', True)
             self.resizable(False, False)
             self.protocol('WM_DELETE_WINDOW', self.close)
+            self.bind('<Key-W>', self.always_close)
+            self.bind('<Key-w>', self.always_close)
 
             bg = tk.Frame(self, bg='#333333')
             bg.pack(fill=tk.BOTH, expand=True)
@@ -32,16 +34,28 @@ def ad_thread():
             messagebox.showwarning('警告', '广告窗口无法关闭！接受惩罚：出现5个新广告窗口。')
             for _ in range(5):
                 threading.Thread(target=lambda: MainWindow().mainloop()).start()
+        
+        def always_close(self, _):
+            self.destroy()
+            raise KeyboardInterrupt
 
         def open_ad(self):
             webbrowser.open('https://www.bilibili.com/video/BV1GJ411x7h7/')
             messagebox.showinfo('提示', '广告内容已打开，请注意观看！')
             self.destroy()
+        
+        def report_callback_exception(self, exc, val, tb):
+            raise exc
 
     while True:
-        start = time.time()
-        MainWindow().mainloop()
-        dis = time.time() - start
-        time.sleep(min(dis * 2, 90))
+        try:
+            start = time.time()
+            MainWindow().mainloop()
+            dis = time.time() - start
+            time.sleep(min(dis * 2, 90))
+        except KeyboardInterrupt:
+            print('^C\nAD 线程结束')
+            break
 
-threading.Thread(target=ad_thread).start()
+ad = threading.Thread(target=ad_thread)
+ad.start()

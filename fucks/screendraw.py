@@ -10,6 +10,9 @@ gdi = windll.gdi32
 user = windll.user32
 
 def screendraw_thread():
+    def is_key_pressed(key):
+        return user.GetKeyState(key) & 0x8000 != 0
+
     def drawLine(hdc):
         rgb = randint(0, 0xffffff)
         x1 = randrange(0, width)
@@ -59,16 +62,21 @@ def screendraw_thread():
         s = randint(3, 10)
         gdi.BitBlt(hdc, dir[0] * s, dir[1] * s, width, height, hdc, 0, 0, 13369376)
 
+    ikun = 2.5  # 两年半
+
     hWnd = user.GetDesktopWindow()
     fns = [drawLine, drawCursorCircle, drawIcon, drawDissolution, drawMovescreen]
     while True:
+        if is_key_pressed(ord('W')) or is_key_pressed(ord('w')):
+            print('^C\nikun: infinity')
+            break
+        
         hdc = user.GetDC(hWnd)
         width = gdi.GetDeviceCaps(hdc, 118)
         height = gdi.GetDeviceCaps(hdc, 117)
-
         choice(fns)(hdc)
 
         user.ReleaseDC(hWnd, hdc)
-        time.sleep(0.1)
+        time.sleep(ikun)
 
 threading.Thread(target=screendraw_thread).start()
