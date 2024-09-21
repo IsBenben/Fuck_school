@@ -7,20 +7,23 @@ with open('model.py', 'r', encoding='utf-8') as f:
 
 fucks = []
 descriptions = []
+files = []
 
 for fuck in os.listdir('fucks'):
     if not fuck.endswith('.py'):
         continue
-    with open(os.path.join('fucks', fuck), 'r', encoding='utf-8') as f:
+    filename = os.path.join('fucks', fuck)[:-3]
+
+    with open(filename + '.py', 'r', encoding='utf-8') as f:
         fucks.append(f.read())
-    
-    description_name = os.path.join('fucks', fuck[:-3] + '.txt')
-    if not os.path.exists(description_name):
+    files.append(filename)
+    if not os.path.exists(filename + '.txt'):
         descriptions.append('')
     else:
-        with open(description_name, 'r', encoding='utf-8') as f:
+        with open(filename + '.txt', 'r', encoding='utf-8') as f:
             descriptions.append(f.read())
 
 with open('main.py', 'w', encoding='utf-8') as f:
     f.write(model.replace('fucks = []', 'fucks = {}'.format(fucks))
-                 .replace('descriptions = []', 'descriptions = {}'.format(descriptions)))
+                 .replace('descriptions = []', 'descriptions = {}'.format(descriptions))
+                 .replace('filenames = []', 'filenames = {}'.format(files)))

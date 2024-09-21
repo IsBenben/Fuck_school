@@ -1,6 +1,6 @@
-【蛋糕功能 - cake.py】
+【蛋糕功能 - {filename}.py】
 
-在桌面上重复生成 “cake.txt”。
+在桌面上重复生成“cake.txt”。
 
 内容如下：
 

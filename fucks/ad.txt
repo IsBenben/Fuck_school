@@ -1,0 +1,7 @@
+【广告功能 - {filename}.py】
+
+随机时间，随机位置弹出广告窗口。
+
+点击广告按钮，将显示“Never Gonna Give You Up”视频（https://www.bilibili.com/video/BV1GJ411x7h7/）。
+
+已隐藏关闭按钮，广告需要使用任务管理器关闭。

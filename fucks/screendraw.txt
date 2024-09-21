@@ -1,0 +1,9 @@
+【屏幕绘制功能 - {filename}.py】
+
+重复地绘制屏幕！
+
+* “drawIcon”：绘制随机的图标。
+* “drawCursorCircle”：在鼠标旁边绘制圆圈。
+* “drawLine”：绘制随机线条。
+* “drawDissolution”：让屏幕的一列向下溶解。
+* “drawMovescreen”：让整个屏幕上下左右移动。
