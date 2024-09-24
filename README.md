@@ -8,7 +8,7 @@ Fuck School 是一个基于 Python 的工具，用于在学校的信息技术课
 
 ## 工作方式
 
-1. 通过 `update.py`（更新程序） 根据 `fucks` 文件夹，自动替换 `model.py`（界面程序），生成 `main.py`（最终程序）。
+1. 通过 `update.py`（更新程序） 根据 `fucks` 文件夹，自动替换 `template.py`（界面程序），生成 `main.py`（最终程序）。
 2. 运行 `main.py`，选择恶搞文件，等待完成。
 3. 导出至自启动文件夹：`C:\Users\{username}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\fuck_school.pyw'`。
 4. 不会自动运行该自启动文件，需要手动运行，在弹出的窗口点击确定即可。
@@ -39,6 +39,15 @@ Fuck School 是一个基于 Python 的工具，用于在学校的信息技术课
 占位符：
 - `{filename}`：文件名（不带扩展名）。
 - `*`：替换并显示为 `※`。
+
+## 功能列表
+
+1. 广告功能 - ad.py - 随机时间，随机位置弹出广告窗口。
+2. 蛋糕功能 - cake.py - 在桌面上重复生成“cake数字.txt”。
+3. 磁盘清理功能 - diskclean.py - 轻轻的“清理”磁盘（实际上是往里面放一堆大文件）。
+4. 鸡你太美功能 - jntm.py - 一起唱：大家好我是全民练习生蔡徐坤，喜欢唱、跳、rap、篮球。music ~
+5. 没内存功能 - nomemory.py - 重复114514次，将23333个哈哈放到运行内存中。
+6. 屏幕绘制功能 - screendraw.py - 重复地绘制屏幕！
 
 ## 关于
 

@@ -2,8 +2,8 @@
 
 import os
 
-with open('model.py', 'r', encoding='utf-8') as f:
-    model = f.read()
+with open('template.py', 'r', encoding='utf-8') as f:
+    template = f.read()
 
 fucks = []
 descriptions = []
@@ -24,6 +24,6 @@ for fuck in os.listdir('fucks'):
             descriptions.append(f.read())
 
 with open('main.py', 'w', encoding='utf-8') as f:
-    f.write(model.replace('fucks = []', 'fucks = {}'.format(fucks))
+    f.write(template.replace('fucks = []', 'fucks = {}'.format(fucks))
                  .replace('descriptions = []', 'descriptions = {}'.format(descriptions))
                  .replace('filenames = []', 'filenames = {}'.format(files)))

@@ -1,8 +1,8 @@
 # *-* encoding: utf-8 *-*
 
 # 请使用该main.py文件！它整合了所有功能，可以更方便的“Fuck School”
-# model.py是main.py的模板，但缺失了很多重要信息，和main.py有本质的区别
-# 若想通过model.py生成main.py，请使用update.py
+# template.py是main.py的模板，但缺失了很多重要信息，和main.py有本质的区别
+# 若想通过template.py生成main.py，请使用update.py
 
 import tkinter as tk
 from tkinter import font, messagebox
@@ -42,6 +42,7 @@ class FuckPage(tk.Frame):
         self.text.tag_config('name', font=font.Font(family='新宋体', slant='italic'))
         self.text.tag_config('title', font=font.Font(family='新宋体', weight='bold'))
 
+        self.text.config(state=tk.NORMAL)
         for line in descriptions[self.index] \
                         .replace('{filename}', filenames[self.index]) \
                         .split('\n'):
@@ -60,6 +61,7 @@ class FuckPage(tk.Frame):
                 elif char == '】':
                     style.remove('title')
             self.text.insert(tk.END, '\n')
+        self.text.config(state=tk.DISABLED)
 
 class GoodbyePage(tk.Frame):
     def __init__(self, master=None):

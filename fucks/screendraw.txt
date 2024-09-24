@@ -7,3 +7,5 @@
 * “drawLine”：绘制随机线条。
 * “drawDissolution”：让屏幕的一列向下溶解。
 * “drawMovescreen”：让整个屏幕上下左右移动。
+
+每次绘制间隔2秒半（2.5s）。
