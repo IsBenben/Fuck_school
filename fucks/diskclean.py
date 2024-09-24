@@ -20,7 +20,7 @@ def diskclean_thread():
         return ''.join(random.choice(chars) for _ in range(length))
 
     def get_drives(thing):
-        not_wrote = set(string.ascii_uppercase)
+        not_wrote = list(string.ascii_uppercase)
 
         while True:
             letter = random.choice(not_wrote)
